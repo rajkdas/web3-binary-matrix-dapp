@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Off-chain mirror of the on-chain 2xN Binary Forced Matrix ───────────────
+// The Registry contract stores the immutable parent/side bindings on Base L2.
+// This Postgres-style mirror (SQLite in the demo sandbox) is maintained by the
+// PortaGraph Indexer: it listens to Registry events and recomputes BFS
+// placement, leg volumes and matching bonuses off-chain to save gas.
+
+model User {
+  id          Int      @id // matrix node id, e.g. 1001 → "#1001"
+  name        String
+  handle      String   @unique // lowercase identity handle
+  wallet      String   @unique // SBT-bound wallet address
+  email       String?
+  provider    String   @default("email") // email | google | x | metamask | demo
+  avatarSeed  String
+  side        String? // "L" | "R" — side occupied under parent
+  parentId    Int?
+  depth       Int      @default(0)
+  sponsorId   Int? // referrer (can differ from placement parent → spillover)
+  status      String   @default("ACTIVE") // ACTIVE | GRACE | SUSPENDED
+  package     String   @default("STARTER") // STARTER | GROWTH | SCALE
+  pkgAmount   Float    @default(0) // USDT
+  isFounder   Boolean  @default(false)
+  leftVol     Float    @default(0) // cached subtree volume — recomputed by indexer
+  rightVol    Float    @default(0)
+  totalEarned Float    @default(0)
+  heldAmount  Float    @default(0)
+  joinedAt    DateTime @default(now())
+  activatedAt DateTime @default(now())
+  earnings    Earning[]
+  events      Event[]
+}
+
+model Earning {
+  id         String    @id @default(cuid())
+  userId     Int
+  user       User      @relation(fields: [userId], references: [id])
+  kind       String // REFERRAL | MATCHING | SPLIT_POOL | TREASURY
+  amount     Float
+  fromId     Int? // matrix node that generated the volume
+  fromName   String?
+  status     String    @default("RELEASED") // HELD | RELEASED | REVERSED
+  heldUntil  DateTime?
+  campaignId String?
+  note       String?
+  createdAt  DateTime  @default(now())
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  type        String // JOIN | FEE_SPLIT | COMPRESSION | HOLD_RELEASE | HOLD_REVERSE | UPGRADE | VOLUME
+  txHash      String
+  blockNumber Int
+  actorId     Int?
+  actor       User?    @relation(fields: [actorId], references: [id])
+  actorName   String
+  headline    String
+  detail      String? // JSON payload
+  amount      Float?
+  createdAt   DateTime @default(now())
+}
+
+model Campaign {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  entryFee    Float // USDT
+  referralPct Float // % to direct sponsor (compressed)
+  poolPct     Float // % to upline pool (next 5 active ancestors, held in SafetyHolding)
+  treasuryPct Float // % to protocol treasury
+  poolDepth   Int      @default(5)
+  active      Boolean  @default(true)
+  optIns      Int      @default(0)
+  createdAt   DateTime @default(now())
+}
