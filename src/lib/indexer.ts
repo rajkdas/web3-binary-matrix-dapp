@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// PortaGraph Indexer core — the off-chain twin of the on-chain Registry.
+// BinaryMatrix Indexer core — the off-chain twin of the on-chain Registry.
 //
 // The Registry contract stores immutable (parent, side) bindings and emits
 // events. This module mirrors that state in memory, then answers the
@@ -294,7 +294,7 @@ export const DEFAULT_GAS: GasAssumptions = {
  * Placement cost at network size N:
  *  On-chain BFS  → the EVM must walk ~N/2 nodes inside findPlacement(),
  *                   each iteration ≈ 1 SLOAD + loop overhead, plus 2 SSTOREs.
- *  PortaGraph    → indexer answers placement off-chain; the chain only stores
+ *  BinaryMatrix    → indexer answers placement off-chain; the chain only stores
  *                   the final binding: fixed ~63k gas regardless of N.
  */
 export function placementGas(N: number, a: GasAssumptions = DEFAULT_GAS) {

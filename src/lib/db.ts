@@ -11,7 +11,7 @@ import { PrismaClient } from "@prisma/client";
  */
 function resolveDatabaseUrl(): string {
   if (process.env.DATABASE_URL) return process.env.DATABASE_URL;
-  if (process.env.VERCEL) return "file:/tmp/portagraph.db";
+  if (process.env.VERCEL) return "file:/tmp/binarymatrix.db";
   const file = path.join(process.cwd(), "db", "custom.db");
   fs.mkdirSync(path.dirname(file), { recursive: true }); // SQLite won't create parent dirs
   return `file:${file}`;

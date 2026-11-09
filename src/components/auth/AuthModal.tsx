@@ -107,7 +107,7 @@ export function AuthModal() {
 
   const onFounderDemo = () => {
     signIn({
-      userId: 1001, name: "Alex Carter", email: "alex@portagraph.io",
+      userId: 1001, name: "Alex Carter", email: "alex@binarymatrix.io",
       wallet: "0xA1e4...C9f3", provider: "demo", embedded: false, isNew: false,
     });
     toast.success("Signed in as Alex Carter", { description: "Founder · position #1001" });
@@ -130,7 +130,7 @@ export function AuthModal() {
       embedded: true,
       isNew: true,
     });
-    toast.success(`Welcome to PortaGraph, ${result.user.name.split(" ")[0]}!`);
+    toast.success(`Welcome to BinaryMatrix, ${result.user.name.split(" ")[0]}!`);
     close(false);
   };
 
@@ -144,7 +144,7 @@ export function AuthModal() {
             <Sparkles className="h-3.5 w-3.5" /> Web2.5 onboarding · ERC-4337 · Base L2
           </div>
           <DialogHeader className="mt-1.5 space-y-1">
-            <DialogTitle className="text-lg font-semibold text-white">Activate your PortaGraph position</DialogTitle>
+            <DialogTitle className="text-lg font-semibold text-white">Activate your BinaryMatrix position</DialogTitle>
             <DialogDescription className="text-sm text-indigo-100">
               Social login mints a soulbound position — no seed phrases, gas sponsored.
             </DialogDescription>
@@ -225,7 +225,7 @@ export function AuthModal() {
               <Button onClick={confirmPackage} disabled={busy} className="w-full bg-indigo-600 hover:bg-indigo-700">
                 <Zap className="mr-1 h-4 w-4" /> Mint soulbound position
               </Button>
-              <p className="text-center text-[11px] text-slate-400">Gas sponsored by PortaGraph paymaster · USDT inbound native</p>
+              <p className="text-center text-[11px] text-slate-400">Gas sponsored by BinaryMatrix paymaster · USDT inbound native</p>
             </div>
           )}
 

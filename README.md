@@ -1,14 +1,28 @@
 <div align="center">
 
-# PortaGraph
+# BinaryMatrix
 
-**The Portable Relationship Protocol — MVP Demo**
+![BinaryMatrix — Web3 binary-matrix dApp](docs/banner.png)
 
-An immutable 2×N binary forced matrix with soulbound identity, instant compressed fee splits, and a 72-hour safety holding window. Built to demonstrate what B2B referral networks look like when the relationship graph lives on-chain and the heavy math runs off-chain.
+**Web3 Binary-Matrix dApp — Live MVP Demo**
 
-Live demo: **https://portagraph-demo.vercel.app/** · Contracts: **Base L2 (Solidity)** · Indexer: **off-chain BFS**
+An immutable 2×N binary forced matrix with soulbound identity, instant compressed fee splits, and a 72-hour safety holding window. Built to demonstrate what B2B affiliate & MLM referral networks look like when the relationship graph lives on-chain and the heavy math runs off-chain.
 
-![Next.js](https://img.shields.io/badge/Next.js-16-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Prisma](https://img.shields.io/badge/Prisma-6-2D3748) ![Base](https://img.shields.io/badge/Chain-Base%20L2-0052FF) ![License](https://img.shields.io/badge/License-MIT-green)
+Live demo: **https://web3-binary-matrix-dapp.vercel.app** · Contracts: **Base L2 (Solidity)** · Indexer: **off-chain BFS**
+
+[![Live Demo](https://img.shields.io/badge/Live_Demo-online-10B981?logo=vercel&logoColor=white)](https://web3-binary-matrix-dapp.vercel.app)
+[![Deploy](https://img.shields.io/badge/Deploy_with-Vercel-black?logo=vercel&logoColor=white)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frajkdas%2Fweb3-binary-matrix-dapp&project-name=web3-binary-matrix-dapp&repository-name=web3-binary-matrix-dapp)
+[![License](https://img.shields.io/badge/License-MIT-22C55E)](LICENSE)
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-6-2D3748?logo=prisma&logoColor=white)
+![Solidity](https://img.shields.io/badge/Solidity-0.8.24-363636?logo=solidity&logoColor=white)
+![Foundry](https://img.shields.io/badge/Foundry-tests-E07A39)
+![Base](https://img.shields.io/badge/Chain-Base_L2-0052FF)
+![ERC-4337](https://img.shields.io/badge/ERC--4337-Account_Abstraction-8B5CF6)
 
 </div>
 
@@ -24,7 +38,7 @@ Live demo: **https://portagraph-demo.vercel.app/** · Contracts: **Base L2 (Soli
 
 ## What this demo proves
 
-PortaGraph is a protocol pitch: *your network position should be a soulbound asset you own — not a database row a company can edit.* This MVP demonstrates the full stack end-to-end:
+BinaryMatrix is a portfolio demo: *your network position should be a soulbound asset you own — not a database row a company can edit.* This MVP demonstrates the full stack end-to-end:
 
 1. **Immutable 2×N binary forced matrix** — every member is an SBT (soulbound NFT, ERC-721 with transfers disabled) bound to a permanent parent/side slot. Transfers are rejected at the contract level.
 2. **Off-chain BFS indexer** — the on-chain `findPlacement` BFS costs gas that grows with the tree. The indexer runs the identical BFS off-chain and submits only the final slot via `placeAt` — **~87% gas savings** on a 45-node tree (see `src/lib/indexer.ts` for the cost model).
@@ -32,7 +46,7 @@ PortaGraph is a protocol pitch: *your network position should be a soulbound ass
 4. **Instant splits + 72h SafetyHolding** — activation fees split immediately to the compressed referral upline and the upline pool; the pool share is held 72 hours (reversible by a safety signer) before release.
 5. **Web2.5 onboarding** — email/Google/X sign-in provisions an embedded wallet, mints the SBT, and shows the exact BFS path and fee splits — no seed phrase, no MetaMask required (MetaMask is also supported).
 
-All of this runs against a **real Solidity contract suite** (`contracts/`), viewable in the app's Contracts tab, with a Foundry test suite.
+All of this runs against a **real Solidity contract suite** (`contracts/`, built under the working title *PortaGraphRegistry*), viewable in the app's Contracts tab, with a Foundry test suite.
 
 ## Demo data
 
@@ -69,7 +83,7 @@ On Vercel (ephemeral filesystem) the database **re-creates and re-seeds itself a
 │  indexer DB)   │              │ simulated chain mem-│   `bun run dev`
 └────────────────┘              │ pool + API relays)  │
                                 └─────────────────────┘
-        mirrors ──────────────── PortaGraph Registry.sol ── Base L2
+        mirrors ──────────────── PortaGraphRegistry.sol ──── Base L2
                                  CampaignManager.sol
                                  SafetyHolding.sol
 ```
@@ -94,8 +108,8 @@ The demo runs against a **simulated chain** (deterministic wallet/tx generation 
 **Prerequisites:** Node.js 20+ (or Bun). No database setup, no env vars, no keys.
 
 ```bash
-git clone https://github.com/rajkdas/portagraph
-cd portagraph
+git clone https://github.com/rajkdas/web3-binary-matrix-dapp
+cd web3-binary-matrix-dapp
 npm install        # runs prisma generate automatically
 npm run dev        # http://localhost:3000 — database auto-creates & seeds
 ```
@@ -126,7 +140,7 @@ The header chip switches from *polling* to *socket.io streaming* automatically.
 
 One-click: fork/clone this repo, then import it on [Vercel](https://vercel.com/new) — no environment variables needed (SQLite boots into `/tmp` and seeds itself). Full step-by-step with screenshots-level detail: **[DEPLOY.md](DEPLOY.md)**.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frajkdas%2Fportagraph&project-name=portagraph&repository-name=portagraph)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frajkdas%2Fweb3-binary-matrix-dapp&project-name=web3-binary-matrix-dapp&repository-name=web3-binary-matrix-dapp)
 
 > Note: on Vercel each serverless instance gets a fresh seeded database on cold start. Signup actions during a demo persist until that instance recycles — perfect for demos, not for production data.
 

@@ -10,8 +10,8 @@ export function Footer() {
           <span className="flex h-5 w-5 items-center justify-center rounded bg-gradient-to-br from-indigo-600 to-violet-600 text-white">
             <Network className="h-3 w-3" />
           </span>
-          <span className="font-semibold text-slate-700">PortaGraph</span>
-          <span>— portable relationship protocol · MVP demo build</span>
+          <span className="font-semibold text-slate-700">BinaryMatrix</span>
+          <span>— Web3 binary-matrix dApp · MVP demo build</span>
         </div>
         <div className="flex items-center gap-4">
           <span>Base L2 · ERC-4337 · 2xN Binary Forced Matrix</span>

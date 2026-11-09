@@ -47,7 +47,7 @@ export function DashboardView({ snap, onRefresh }: { snap: NetworkSnapshot; onRe
   }, [derived.downline, query]);
 
   const copyRef = () => {
-    navigator.clipboard.writeText(`https://portagraph.demo/join?ref=${me.id}`)
+    navigator.clipboard.writeText(`https://binarymatrix.demo/join?ref=${me.id}`)
       .then(() => useApp.getState().setFeedOpen(false))
       .catch(() => {});
     import("sonner").then(({ toast }) => toast.success("Referral link copied", { description: `ref=${me.id}` }));

@@ -40,7 +40,7 @@ export function Landing({ liveEvents }: { liveEvents: number }) {
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-sm">
               <Network className="h-4 w-4" />
             </span>
-            <span className="text-[15px] font-bold tracking-tight">PortaGraph</span>
+            <span className="text-[15px] font-bold tracking-tight">BinaryMatrix</span>
             <Badge variant="outline" className="border-indigo-200 bg-indigo-50 text-[10px] font-semibold text-indigo-600">MVP</Badge>
           </div>
           <div className="ml-auto flex items-center gap-2">
@@ -66,7 +66,7 @@ export function Landing({ liveEvents }: { liveEvents: number }) {
               <span className="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent"> portable, provable, payable.</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-600">
-              PortaGraph stores your B2B affiliate &amp; MLM structure as an immutable{" "}
+              BinaryMatrix stores your B2B affiliate &amp; MLM structure as an immutable{" "}
               <b className="text-slate-800">2xN binary forced matrix</b> on-chain — with Web2.5 onboarding,
               gasless activation, and an off-chain indexer that keeps fees near zero.
             </p>
@@ -131,7 +131,7 @@ export function Landing({ liveEvents }: { liveEvents: number }) {
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center text-3xl font-bold tracking-tight text-slate-900">The full stack, already standing</h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-slate-600">
-            This MVP implements every pillar of the PortaGraph spec — contracts, sync layer and dashboard — running as one coherent demo.
+            This MVP implements every pillar of the BinaryMatrix spec — contracts, sync layer and dashboard — running as one coherent demo.
           </p>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((f) => (

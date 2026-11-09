@@ -110,7 +110,7 @@ export function CalculatorView() {
               <Fuel className="h-8 w-8 shrink-0 text-emerald-600" />
               <div className="flex-1 text-sm">
                 <p className="font-semibold text-emerald-800">
-                  Placement at {fmtCompact(network)} nodes: {currentGas.onChainGas.toLocaleString()} gas on-chain vs {currentGas.offChainGas.toLocaleString()} with PortaGraph sync
+                  Placement at {fmtCompact(network)} nodes: {currentGas.onChainGas.toLocaleString()} gas on-chain vs {currentGas.offChainGas.toLocaleString()} with BinaryMatrix sync
                 </p>
                 <p className="text-xs text-emerald-700">
                   {currentGas.savingPct}% cheaper · ${currentGas.onChainUsd.toFixed(3)} → ${currentGas.offChainUsd.toFixed(3)} per placement, and the gap grows linearly with network size
@@ -133,7 +133,7 @@ export function CalculatorView() {
                 <p><b>Matching bonus</b> = matching% × min(leftVol, rightVol) per weekly cycle, capped by tier (STARTER $1,000 · GROWTH $4,000 · SCALE $15,000).</p>
                 <p><b>Referral income</b> = referral% × package value of each direct activation; sponsors compress past suspended ancestors.</p>
                 <p><b>Weak-leg volume</b> = (network ÷ 2) × avg package × balance efficiency — a 2×N binary tree fills ~half its volume into each leg.</p>
-                <p><b>Gas model</b> — on-chain BFS visits ≈ N/2 nodes (2,600 gas/iteration) + 21,000 base + 2 SSTOREs @ 2,100. PortaGraph commits a pre-computed slot: 21,000 base + 3 SSTOREs, independent of N. Base at 0.05 gwei, ETH = $3,200.</p>
+                <p><b>Gas model</b> — on-chain BFS visits ≈ N/2 nodes (2,600 gas/iteration) + 21,000 base + 2 SSTOREs @ 2,100. BinaryMatrix commits a pre-computed slot: 21,000 base + 3 SSTOREs, independent of N. Base at 0.05 gwei, ETH = $3,200.</p>
                 <p><b>Holding</b> — upline pool shares (6% default) are escrowed 72h; projections show gross, pre-release amounts.</p>
               </CardContent>
             )}

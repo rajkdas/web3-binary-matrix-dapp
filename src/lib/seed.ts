@@ -1,5 +1,5 @@
 /**
- * PortaGraph demo seed — mirrors what the off-chain Indexer would persist
+ * BinaryMatrix demo seed — mirrors what the off-chain Indexer would persist
  * after listening to Registry events on Base L2.
  *
  * Network shape (2xN Binary Forced Matrix, 45 nodes, 5 levels):
@@ -38,7 +38,7 @@ interface Row {
 }
 
 const rows: Row[] = [
-  { id: 1001, name: "Alex Carter", side: null, parent: null, sponsor: null, pkg: "SCALE", daysAgo: 34, founder: true, email: "alex@portagraph.io" },
+  { id: 1001, name: "Alex Carter", side: null, parent: null, sponsor: null, pkg: "SCALE", daysAgo: 34, founder: true, email: "alex@binarymatrix.io" },
   // L1
   { id: 1002, name: "Maya Okafor", side: "L", parent: 1001, sponsor: 1001, pkg: "SCALE", daysAgo: 32 },
   { id: 1003, name: "Diego Ramirez", side: "R", parent: 1001, sponsor: 1001, pkg: "GROWTH", daysAgo: 31 },
@@ -92,28 +92,28 @@ const rows: Row[] = [
 
 /** Wipe and rebuild the 45-node demo network. Safe to call repeatedly. */
 export async function seedNetwork(db: PrismaClient) {
-  console.log("[portagraph] Resetting tables…");
+  console.log("[binarymatrix] Resetting tables…");
   await db.earning.deleteMany();
   await db.event.deleteMany();
   await db.campaign.deleteMany();
   await db.user.deleteMany();
 
-  console.log("[portagraph] Creating campaigns…");
+  console.log("[binarymatrix] Creating campaigns…");
   await db.campaign.createMany({
     data: [
-      { id: "c-launch", name: "PortaGraph Launch", description: "Default on-chain opt-in. 12% compressed referral + 6% upline pool held 72h in SafetyHolding.", entryFee: 0, referralPct: 12, poolPct: 6, treasuryPct: 2, poolDepth: 5, active: true, optIns: 45, createdAt: new Date(NOW - 34 * DAY) },
+      { id: "c-launch", name: "BinaryMatrix Launch", description: "Default on-chain opt-in. 12% compressed referral + 6% upline pool held 72h in SafetyHolding.", entryFee: 0, referralPct: 12, poolPct: 6, treasuryPct: 2, poolDepth: 5, active: true, optIns: 45, createdAt: new Date(NOW - 34 * DAY) },
       { id: "c-founders", name: "Founders Circle", description: "High-tier campaign with instant fee splits and deeper pool coverage for SCALE activations.", entryFee: 1500, referralPct: 15, poolPct: 5, treasuryPct: 2, poolDepth: 7, active: true, optIns: 8, createdAt: new Date(NOW - 30 * DAY) },
       { id: "c-q4", name: "Q4 Partner Sprint", description: "Time-boxed seasonal campaign. Boosted pool split, expires automatically at epoch end.", entryFee: 500, referralPct: 10, poolPct: 8, treasuryPct: 2, poolDepth: 5, active: true, optIns: 21, createdAt: new Date(NOW - 12 * DAY) },
     ],
   });
 
-  console.log("[portagraph] Creating matrix nodes…");
+  console.log("[binarymatrix] Creating matrix nodes…");
   const users = rows.map((r) => ({
     id: r.id,
     name: r.name,
     handle: r.name.toLowerCase().replace(/[^a-z]+/g, "."),
     wallet: wallet(r.id),
-    email: r.email ?? `${r.name.toLowerCase().replace(/[^a-z]+/g, ".")}@portagraph.io`,
+    email: r.email ?? `${r.name.toLowerCase().replace(/[^a-z]+/g, ".")}@binarymatrix.io`,
     provider: r.founder ? "demo" : (["email", "google", "x"] as const)[Math.floor(rnd() * 3)],
     avatarSeed: r.name,
     side: r.side,
@@ -144,7 +144,7 @@ export async function seedNetwork(db: PrismaClient) {
   const subtreeVol = (id: number): number =>
     (childrenOf.get(id) ?? []).reduce((s, c) => s + subtreeVol(c), byId.get(id)!.pkgAmount);
 
-  console.log("[portagraph] Seeding earnings & events…");
+  console.log("[binarymatrix] Seeding earnings & events…");
   let block = 4_821_300;
   const events: { type: string; txHash: string; blockNumber: number; actorId: number | null; actorName: string; headline: string; detail: string; amount: number | null; createdAt: Date }[] = [];
   const earnings: { userId: number; kind: string; amount: number; fromId: number | null; fromName: string | null; status: string; heldUntil: Date | null; campaignId: string | null; note: string | null; createdAt: Date }[] = [];
@@ -223,7 +223,7 @@ export async function seedNetwork(db: PrismaClient) {
   await db.event.createMany({ data: events });
 
   // ── roll up totals on users ──
-  console.log("[portagraph] Rolling up user totals…");
+  console.log("[binarymatrix] Rolling up user totals…");
   for (const r of rows) {
     const mine = earnings.filter((e) => e.userId === r.id);
     const released = mine.filter((e) => e.status === "RELEASED").reduce((s, e) => s + e.amount, 0);
@@ -236,5 +236,5 @@ export async function seedNetwork(db: PrismaClient) {
     });
   }
 
-  console.log(`[portagraph] ✓ Seeded ${rows.length} nodes · ${earnings.length} earnings · ${events.length} events · 3 campaigns`);
+  console.log(`[binarymatrix] ✓ Seeded ${rows.length} nodes · ${earnings.length} earnings · ${events.length} events · 3 campaigns`);
 }

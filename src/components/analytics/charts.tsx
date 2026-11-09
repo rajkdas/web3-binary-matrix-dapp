@@ -155,7 +155,7 @@ export function PkgPieCard({ className, users }: { className?: string; users: Ma
   );
 }
 
-/** Gas: on-chain BFS vs PortaGraph off-chain sync, from the stated model. */
+/** Gas: on-chain BFS vs BinaryMatrix off-chain sync, from the stated model. */
 export function GasChartCard({ className, points }: { className?: string; points: { N: number; onChainUsd: number; offChainUsd: number; savingPct: number }[] }) {
   const data = points.map((p) => ({ name: `${fmtCompact(p.N)} nodes`, onChain: p.onChainUsd, offChain: p.offChainUsd, saving: p.savingPct }));
   return (
@@ -173,7 +173,7 @@ export function GasChartCard({ className, points }: { className?: string; points
             <Tooltip content={<ChartTip prefix="$" />} cursor={{ fill: "rgba(16,185,129,0.06)" }} />
             <Legend wrapperStyle={{ fontSize: 11 }} />
             <Bar dataKey="onChain" name="On-chain BFS" fill={C.rose} radius={[4, 4, 0, 0]} maxBarSize={30} />
-            <Bar dataKey="offChain" name="PortaGraph sync" fill={C.emerald} radius={[4, 4, 0, 0]} maxBarSize={30} />
+            <Bar dataKey="offChain" name="BinaryMatrix sync" fill={C.emerald} radius={[4, 4, 0, 0]} maxBarSize={30} />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

@@ -25,7 +25,7 @@ export function Navbar({ unread }: { unread: number }) {
   const { view, setView, identity, signOut, setFeedOpen } = useApp();
 
   const copyRef = () => {
-    navigator.clipboard.writeText(`https://portagraph.demo/join?ref=${identity?.userId ?? 1001}`)
+    navigator.clipboard.writeText(`https://binarymatrix.demo/join?ref=${identity?.userId ?? 1001}`)
       .then(() => toast.success("Referral link copied", { description: `ref=${identity?.userId ?? 1001} → BFS placement under your subtree` }))
       .catch(() => toast.error("Clipboard unavailable"));
   };
@@ -38,7 +38,7 @@ export function Navbar({ unread }: { unread: number }) {
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-indigo-600 to-violet-600 text-white shadow-sm">
             <Network className="h-4.5 w-4.5" />
           </span>
-          <span className="text-[15px] font-bold tracking-tight text-slate-900">PortaGraph</span>
+          <span className="text-[15px] font-bold tracking-tight text-slate-900">BinaryMatrix</span>
           <Badge variant="outline" className="hidden border-indigo-200 bg-indigo-50 text-[10px] font-semibold text-indigo-600 sm:inline-flex">MVP DEMO</Badge>
         </button>
 

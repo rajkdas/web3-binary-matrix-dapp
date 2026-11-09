@@ -13,7 +13,7 @@ import { db } from "./db";
 import { BOOTSTRAP_SQL } from "./bootstrap-sql";
 import { seedNetwork } from "./seed";
 
-const globalForBootstrap = globalThis as unknown as { __portagraphReady?: Promise<void> };
+const globalForBootstrap = globalThis as unknown as { __binarymatrixReady?: Promise<void> };
 
 async function bootstrap() {
   for (const stmt of BOOTSTRAP_SQL) {
@@ -21,19 +21,19 @@ async function bootstrap() {
   }
   const users = await db.user.count();
   if (users === 0) {
-    console.log("[portagraph] empty database — seeding demo network…");
+    console.log("[binarymatrix] empty database — seeding demo network…");
     await seedNetwork(db);
   }
 }
 
 /** Await this at the top of every API handler before touching the database. */
 export function ensureReady(): Promise<void> {
-  if (!globalForBootstrap.__portagraphReady) {
-    globalForBootstrap.__portagraphReady = bootstrap().catch((err) => {
+  if (!globalForBootstrap.__binarymatrixReady) {
+    globalForBootstrap.__binarymatrixReady = bootstrap().catch((err) => {
       // allow the next request to retry (e.g. a transient SQLite lock)
-      globalForBootstrap.__portagraphReady = undefined;
+      globalForBootstrap.__binarymatrixReady = undefined;
       throw err;
     });
   }
-  return globalForBootstrap.__portagraphReady;
+  return globalForBootstrap.__binarymatrixReady;
 }

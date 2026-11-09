@@ -57,7 +57,7 @@ export const useApp = create<AppState>()(
       setHydrated: () => set({ hydrated: true }),
     }),
     {
-      name: "portagraph-session",
+      name: "binarymatrix-session",
       partialize: (s) => ({ identity: s.identity, view: s.view }),
       onRehydrateStorage: () => (state) => {
         state?.setHydrated();

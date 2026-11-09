@@ -1,4 +1,4 @@
-# Host PortaGraph Online — Step-by-Step Guide
+# Host the BinaryMatrix dApp Online — Step-by-Step Guide
 
 This guide takes you from zero to a public live demo URL in about 15 minutes, using only free tools: **GitHub** (code hosting) and **Vercel** (app hosting). No credit card, no server, no commands beyond a few copies-and-pastes.
 
@@ -11,7 +11,7 @@ This guide takes you from zero to a public live demo URL in about 15 minutes, us
 - A computer with internet.
 - A free **GitHub** account (github.com) — you have one if you can see your repos at github.com/rajkdas.
 - A free **Vercel** account (vercel.com) — sign in **with GitHub**, it's one click.
-- The project ZIP file (`portagraph-mvp.zip`), which you unzip anywhere on your computer (Right-click → Extract All).
+- The project ZIP file (`web3-binary-matrix-dapp.zip`), which you unzip anywhere on your computer (Right-click → Extract All).
 
 ---
 
@@ -20,23 +20,23 @@ This guide takes you from zero to a public live demo URL in about 15 minutes, us
 ### Easy way (GitHub Desktop — no commands)
 
 1. Install **GitHub Desktop** (desktop.github.com), open it, sign in with GitHub.
-2. **File → Add Local Repository…** → select the unzipped `portagraph` folder.
+2. **File → Add Local Repository…** → select the unzipped `web3-binary-matrix-dapp` folder.
    - If it says "this directory is not a repository", click **Create a Repository Here** → leave defaults → **Create Repository**.
-3. Click **Publish repository** → keep the name `portagraph` → uncheck "Keep this code private" (so Vercel's clone button works) → **Publish**.
+3. Click **Publish repository** → keep the name `web3-binary-matrix-dapp` → uncheck "Keep this code private" (so Vercel's clone button works) → **Publish**.
 
 ### Terminal way (if you prefer commands)
 
 ```bash
-cd path/to/portagraph
+cd path/to/web3-binary-matrix-dapp
 git init
 git add .
-git commit -m "PortaGraph MVP"
-git remote add origin https://github.com/rajkdas/portagraph.git
+git commit -m "BinaryMatrix dApp MVP"
+git remote add origin https://github.com/rajkdas/web3-binary-matrix-dapp.git
 git branch -M main
 git push -u origin main
 ```
 
-✅ **Check:** open https://github.com/rajkdas/portagraph in your browser — you should see the code and the README with screenshots.
+✅ **Check:** open https://github.com/rajkdas/web3-binary-matrix-dapp in your browser — you should see the code and the README with screenshots.
 
 ---
 
@@ -44,14 +44,14 @@ git push -u origin main
 
 1. Go to **vercel.com** → **Sign In → Continue with GitHub** → authorize Vercel.
 2. Click **Add New… → Project**.
-3. Find **portagraph** in the repository list → click **Import**.
+3. Find **web3-binary-matrix-dapp** in the repository list → click **Import**.
 4. Leave every setting as-is:
    - Framework Preset: **Next.js** (auto-detected)
    - Build Command / Output: default
    - Environment Variables: **none needed** (the database creates and seeds itself)
 5. Click **Deploy** and wait 2–3 minutes while it builds.
 
-✅ **Check:** you land on a fireworks page with **Continue to Dashboard**. Your URL is shown at the top — something like `portagraph.vercel.app` or `portagraph-xxxx.vercel.app`.
+✅ **Check:** you land on a fireworks page with **Continue to Dashboard**. Your URL is shown at the top — something like `web3-binary-matrix-dapp.vercel.app`.
 
 > If the build fails, click **View Build Logs**, copy the last ~10 red lines, and see Troubleshooting below.
 
@@ -72,10 +72,10 @@ Send that link to anyone — it is your live demo.
 
 ## Step 4 — Update the README with your real URL (optional, 1 minute)
 
-After the first deploy, Vercel gives you the final URL (e.g. `portagraph-xxxx.vercel.app`).
+After the first deploy, Vercel gives you the final URL (e.g. `web3-binary-matrix-dapp.vercel.app`).
 
-1. On github.com, open your `portagraph` repo → click the ✏️ pencil on `README.md`.
-2. Replace `https://portagraph.vercel.app` (top of the file) with your real URL → **Commit changes**.
+1. On github.com, open your `web3-binary-matrix-dapp` repo → click the ✏️ pencil on `README.md`.
+2. Replace `https://web3-binary-matrix-dapp.vercel.app` (top of the file) with your real URL → **Commit changes**.
 
 Vercel automatically redeploys on every push — nothing else to do.
 
