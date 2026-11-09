@@ -8,7 +8,7 @@
 
 An immutable 2×N binary forced matrix with soulbound identity, instant compressed fee splits, and a 72-hour safety holding window. Built to demonstrate what B2B affiliate & MLM referral networks look like when the relationship graph lives on-chain and the heavy math runs off-chain.
 
-Live demo: **https://web3-binary-matrix-dapp.vercel.app** · Contracts: **Base L2 (Solidity)** · Indexer: **off-chain BFS**
+Live demo: **https://portagraph-demo-two.vercel.app** · Contracts: **Base L2 (Solidity)** · Indexer: **off-chain BFS**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-online-10B981?logo=vercel&logoColor=white)](https://web3-binary-matrix-dapp.vercel.app)
 [![Deploy](https://img.shields.io/badge/Deploy_with-Vercel-black?logo=vercel&logoColor=white)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frajkdas%2Fweb3-binary-matrix-dapp&project-name=web3-binary-matrix-dapp&repository-name=web3-binary-matrix-dapp)
