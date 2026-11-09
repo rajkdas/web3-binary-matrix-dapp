@@ -14,19 +14,30 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PortaGraph — Portable Relationship Protocol (MVP Demo)",
+  title: "BinaryMatrix — Web3 Binary-Matrix dApp (Live Demo)",
   description:
     "Immutable 2xN binary forced matrix on Base L2 with Web2.5 onboarding, ERC-4337 account abstraction, off-chain BFS indexer and instant campaign fee splits.",
-  keywords: ["PortaGraph", "binary matrix", "Base L2", "ERC-4337", "SBT", "affiliate", "Web3"],
-  authors: [{ name: "PortaGraph Labs" }],
-  icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
-  },
+  keywords: ["BinaryMatrix", "binary matrix", "Base L2", "ERC-4337", "SBT", "affiliate", "Web3"],
+  authors: [{ name: "BinaryMatrix Labs" }],
   openGraph: {
-    title: "PortaGraph MVP Demo",
+    title: "BinaryMatrix — Live MVP Demo",
     description: "On-chain 2xN binary forced matrix · gasless Web2.5 onboarding · off-chain BFS sync",
-    siteName: "PortaGraph",
+    siteName: "BinaryMatrix",
     type: "website",
+    images: [
+      {
+        url: "/social-preview.png",
+        width: 1280,
+        height: 640,
+        alt: "BinaryMatrix — decentralized binary-matrix protocol",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BinaryMatrix — Live MVP Demo",
+    description: "On-chain 2xN binary forced matrix · gasless Web2.5 onboarding · off-chain BFS sync",
+    images: ["/social-preview.png"],
   },
 };
 

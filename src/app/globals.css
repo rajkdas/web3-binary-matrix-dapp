@@ -121,7 +121,7 @@
   }
 }
 
-/* ── PortaGraph demo additions ─────────────────────────────────────────── */
+/* ── BinaryMatrix demo additions ─────────────────────────────────────────── */
 
 @keyframes pg-pop {
   0% { transform: scale(0.4); opacity: 0; }
