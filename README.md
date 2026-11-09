@@ -6,7 +6,7 @@
 
 An immutable 2×N binary forced matrix with soulbound identity, instant compressed fee splits, and a 72-hour safety holding window. Built to demonstrate what B2B referral networks look like when the relationship graph lives on-chain and the heavy math runs off-chain.
 
-Live demo: **https://portagraph.vercel.app** · Contracts: **Base L2 (Solidity)** · Indexer: **off-chain BFS**
+Live demo: **https://portagraph-demo.vercel.app/** · Contracts: **Base L2 (Solidity)** · Indexer: **off-chain BFS**
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Prisma](https://img.shields.io/badge/Prisma-6-2D3748) ![Base](https://img.shields.io/badge/Chain-Base%20L2-0052FF) ![License](https://img.shields.io/badge/License-MIT-green)
 
